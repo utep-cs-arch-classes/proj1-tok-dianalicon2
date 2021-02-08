@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+void main(){
+  char a;
+  char b;
+  printf("input a string\n");
+  a=getchar();
+  b=getchar();
+  while (c!='n'){
+  
+}

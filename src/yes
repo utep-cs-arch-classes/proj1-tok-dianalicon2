@@ -1,0 +1,12 @@
+student@systems-vm:~/Documents/lab1/proj1-tok-dianalicon2/src> gcc -c GUI.c
+student@systems-vm:~/Documents/lab1/proj1-tok-dianalicon2/src> gcc -o hel GUI.o
+student@systems-vm:~/Documents/lab1/proj1-tok-dianalicon2/src> ./hel
+input a string
+0
+k
+107
+
+k
+
+k kstudent@systems-vm:~/Documents/lab1/proj1-tok-dianalicon2/src>
+student@systems-vm:~/Documents/lab1/proj1-tok-dianalicon2/src> 
