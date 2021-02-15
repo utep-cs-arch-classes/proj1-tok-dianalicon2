@@ -1,7 +1,5 @@
 #ifndef _TOKENIZER_
 #define _TOKENIZER_
-
-
 /* Return true (non-zero) if c is a whitespace characer
    (' ', '\t', or '\n').
    Zero terminators are not printable (therefore false) */
@@ -46,5 +44,19 @@ void print_tokens(char **tokens);
 
 /* Frees all tokens and the vector containing them. */
 void free_tokens(char **tokens);
+
+
+
+int space_char(char c){
+  if(c=='\n'||c=='\t'||c==' '){
+    return 1;
+  }
+  return 0;
+}
+
+int non_space_char(char c){
+  return !space_char(c);
+}
+
 
 #endif
