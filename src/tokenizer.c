@@ -28,3 +28,11 @@ char *word_end(char *str){
     return 0;
   return str;
 }
+int count_words(char *str){
+  if(word_start(str)==0)
+    return 0;
+  if(word_end(word_start(str))==0)
+    return 1;
+   return count_words(word_end(word_start(str)))+1;
+    
+}
