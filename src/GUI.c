@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "tokenizer.h"
 
 void main(){
@@ -17,5 +18,8 @@ void main(){
   ch[i]='\0';
 
   printf("\nyou entered %d words\n",count_words(ch));
+  char **t;
+  t=tokenize(ch);
   
+  print_tokens(t);
 }
