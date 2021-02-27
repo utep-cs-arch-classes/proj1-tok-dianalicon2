@@ -25,14 +25,12 @@ char *word_end(char *str){
   while(non_space_char(*str)&&*str!='\0'){
     str=(str+1);
   }
-  if(*str=='\0')
-    return 0;
   return str;
 }
 int count_words(char *str){
   if(word_start(str)==0)
     return 0;
-  if(word_end(word_start(str))==0)
+  if(*word_end(word_start(str))==0)
     return 1;
    return count_words(word_end(word_start(str)))+1;    
 }
@@ -54,7 +52,15 @@ char **tokenize(char *s){
   for(i=0;i<string_num;i++){
   dif=word_end(word_start(s))-word_start(s);
   tokens[i]=copy_str(s,dif);
-  s=s+dif;
+  s=s+dif+1;
   }
   return tokens;
+}
+void print_tokens(char **tokens){
+  int i;
+  i=0;
+  while(tokens[i]!=0){
+  printf("\n%s\n",tokens[i]);
+  i=i+1;
+  }
 }
