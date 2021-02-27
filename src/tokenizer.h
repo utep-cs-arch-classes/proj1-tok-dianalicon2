@@ -46,17 +46,4 @@ void print_tokens(char **tokens);
 void free_tokens(char **tokens);
 
 
-
-int space_char(char c){
-  if(c=='\n'||c=='\t'||c==' '){
-    return 1;
-  }
-  return 0;
-}
-
-int non_space_char(char c){
-  return !space_char(c);
-}
-
-
 #endif
