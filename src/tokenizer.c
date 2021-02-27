@@ -64,3 +64,13 @@ void print_tokens(char **tokens){
   i=i+1;
   }
 }
+void free_tokens(char **tokens){
+  int i;
+  i=0;
+  
+  while(tokens[i]!=0){
+    free(tokens[i]);
+   }
+  free(tokens[i]);
+  free(tokens);
+}
