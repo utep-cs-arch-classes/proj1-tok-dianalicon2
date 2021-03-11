@@ -35,16 +35,17 @@ int count_words(char *str){
    return count_words(word_end(word_start(str)))+1;    
 }
 char *copy_str(char *src, short len){
-  char * new_src=(char *)malloc(len);
+  char * new_src=(char *)malloc(sizeof(char)*len+1);
   int i;
   for(i=0;i<len;i++){
     *(new_src+i)=src[i];
   }
+  new_src[i]='\0';
   return new_src;
 }
 char **tokenize(char *s){
   int string_num=count_words(s);
-  char **tokens=(char **)malloc(sizeof(char *)*(string_num+1));
+  char **tokens=(char **)malloc(sizeof(char*)*(string_num+1));
   tokens[string_num]=0;
   short dif;
   int i;
@@ -54,13 +55,14 @@ char **tokenize(char *s){
   tokens[i]=copy_str(s,dif);
   s=s+dif+1;
   }
+ 
   return tokens;
 }
 void print_tokens(char **tokens){
   int i;
   i=0;
   while(tokens[i]!=0){
-  printf("\n%s\n",tokens[i]);
+  printf("\ntokens[i]:%s\n",tokens[i]);
   i=i+1;
   }
 }
@@ -70,7 +72,8 @@ void free_tokens(char **tokens){
   
   while(tokens[i]!=0){
     free(tokens[i]);
-   }
+    i=i+1;
+  }
   free(tokens[i]);
   free(tokens);
 }
