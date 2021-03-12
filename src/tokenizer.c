@@ -49,11 +49,13 @@ char **tokenize(char *s){
   tokens[string_num]=0;
   short dif;
   int i;
+  char *start;
   i=0;
   for(i=0;i<string_num;i++){
-  dif=word_end(word_start(s))-word_start(s);
-  tokens[i]=copy_str(s,dif);
-  s=s+dif+1;
+    start=word_start(s);
+    dif=word_end(word_start(start))-word_start(start);
+    tokens[i]=copy_str(start,dif);
+    s=s+dif+1;
   }
  
   return tokens;
