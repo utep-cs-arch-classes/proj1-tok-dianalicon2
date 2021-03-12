@@ -64,7 +64,7 @@ void print_tokens(char **tokens){
   int i;
   i=0;
   while(tokens[i]!=0){
-  printf("\ntokens[i]:%s\n",tokens[i]);
+    printf("\ntokens[%d]:%s\n",i,tokens[i]);
   i=i+1;
   }
 }
