@@ -42,9 +42,45 @@ void add_history(List *list, char *str){
 }
 void print_history(List *list){
   Item *temp=list->root;
+  if(!list->root)
+    printf("\nnohing here\n");
   while(temp){
     printf("\nID:%d ",temp->id);
     printf("  STRING:%s\n",temp->str);
     temp=temp->next;
   }
+}
+char *get_history(List *list, int id){
+  if(id<1){
+    printf("\ncannot access negative id\n");
+    return 0;
+  }
+  Item *temp=list->root;
+  int count=1;
+  while(temp && count<id){
+    temp=temp->next;
+    count=count+1;
+  }
+  if(temp && count==id){
+    return temp->str;
+  }
+  printf("\nid does not exist\n");
+  return 0;
+}
+void free_history(List *list){
+  printf("holi\n");
+  Item *curr=list->root;
+  free(list);
+  Item *next;
+  while(curr){
+    next=curr->next;
+    free(curr->str);
+    int * id_ptr=&curr->id;
+    free(id_ptr);
+    free(curr->next);
+    free(curr);
+    curr=next;
+  }
+ 
+  free(list);
 }
