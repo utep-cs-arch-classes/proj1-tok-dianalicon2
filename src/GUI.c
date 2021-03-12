@@ -3,6 +3,8 @@
 #include "tokenizer.h"
 #include "history.h"
 
+int get_int();
+int power(int base, int pow);
 void main(){
   char a;
   int i;
@@ -26,5 +28,39 @@ void main(){
     char** tokens=tokenize(word);
     print_tokens(tokens);
   }
-  print_history(history);
+  printf("\nwould you like to 1)view full history or 2)search by index\n");
+  char option=getchar();
+  if(option=='1'){
+    print_history(history);
+  }
+  else{
+    getchar();
+    int id=get_int();
+    printf("\n%s\n",get_history(history,id));
+  }
+  //free_history(history);
+}
+int get_int(){
+  char ch;
+  char str[10];
+  int len=0;
+  printf("enter ! followed by the id number (ex: !3)\n");
+  getchar();
+  while((ch=getchar())!='\n'){
+    str[len]=ch;
+    len=len+1;
+ }
+  str[len]='\0';
+  int count;
+  int result=0;
+  len=len-1;
+  for(count=len;count>=0;count--){
+    result=result+((str[len-count]-48) * power(10,count));
+    }
+  return result;
+}
+int power(int base, int pow){
+  if(pow==0)
+    return 1;
+  return base * power(base,pow-1);
 }
