@@ -13,7 +13,7 @@ void main(){
   while(1){
     char word[100];
     i=0;
-    printf("input  string\n");
+    printf("input  string or enter 'q' to quit\n");
     while((a=getchar())!='\n'){
       word[i]=a;
       i=i+1;
